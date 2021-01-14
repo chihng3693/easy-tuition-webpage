@@ -1,0 +1,499 @@
+body {
+	font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+/* header */
+nav {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: rgb(107, 35, 175);
+    height: 100px;
+    width: 100%;
+    background-color: skyblue;
+    position: fixed;
+    z-index: 1000;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline;
+    padding: 0px 25px 0px 25px;
+}
+
+nav ul li a{
+    
+    position: relative;
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    -webkit-transform: translateX(-50%) scaleX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    -webkit-transition: transform 250ms;
+    transition: transform 250ms;
+}
+
+nav ul li a:hover:after{
+    -webkit-transform: translateX(-50%) scaleX(1);
+    transform: translateX(-50%) scaleX(1);
+}
+
+.logo{
+    margin-left: 20px;
+    height: 50px;
+    width: 65px;
+    /*adjust nav content to center*/
+    padding-right: 365px;
+    text-align: center;
+}
+
+.main-img{
+    margin-top: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 250px;
+}
+
+.side-img{
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 250px;
+}
+
+button{
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10%;
+    border: none;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    height: 30px;
+}
+
+/* arrow animation */
+#arrow-down{
+    margin-top: 50px;
+    margin-left: 50%;
+    width:50px;
+    height:50px;
+    -webkit-animation: floating-animation 3s ease-in-out infinite;
+    -o-animation: floating-animation 3s ease-in-out infinite;
+    animation: floating-animation 3s ease-in-out infinite;
+}
+
+@keyframes floating-animation{
+
+    0%{
+        -webkit-animation: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform:translateY(0) ;
+    }
+
+    50%{
+        -webkit-animation: translateY(-50px);
+        -moz-transform: translateY(-50px);
+        -ms-transform: translateY(-50px);
+        -o-transform: translateY(-50px);
+        transform:translateY(-50px) ;
+    }
+
+    100%{
+        -webkit-animation: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform:translateY(0) ;
+    }
+}
+
+/* main */
+#main{
+    margin: 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    background: rgb(255, 255, 255);
+}
+
+/* Mission */
+#intro{
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    padding-left: 40px;
+}
+
+/* Review */
+#review{
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+}
+
+/* about us
+#about{
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    padding-left: 40px;
+}
+*/
+
+/*footer*/
+footer{
+    bottom:0px;
+    background-color:skyblue;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Flip Animation */
+.flip-card-container {
+    width: 550px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 20px 0px 20px 50px;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-container:hover .flip-card {
+    transform: rotateY(180deg); /* <=>  rotateY(.5turn) */
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.flip-card-front {
+    background-color: skyblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+}
+
+.flip-card-back {
+    background-color: #ffffff;
+    color: black;
+    transform: rotateY(180deg);
+    font-family: 'Courier New', Courier, monospace;
+    border-style: solid;
+    border-width: 2px;
+}
+  
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+}
+
+.flip-card-back p {
+    text-align: center;
+    margin: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.flip-card-back p span {
+    display: block;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 1.25rem;
+}
+
+/* Slide Word Styling */
+
+/*
+.headslide{
+    text-shadow: 1.5px 1.5px grey;
+    font-size: 40px;
+    color: black;
+} */
+
+/* slide animation */
+.slideshow-container{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-left: 0%;
+    height: 100vh;
+}
+
+.mySlides{
+    display: none;
+    position: static;
+    text-align: center;
+    margin: 0px 50px 50px 50px;
+    padding: 150px;
+    background-color: skyblue;
+    border-radius: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Put next button at right */
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+/* change button color when cursor is pointed */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+/* Fade animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+/* login box form */
+
+/* input fields */
+input[type=text], input[type=password] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid grey;
+    padding: 14px 10px;
+    width: 700px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+input[type = "text"]:focus, input[type = "password"]:focus{
+    width: 750px;
+    border-color: #3790f4;
+}
+
+input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid grey;
+    padding: 14px 40px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    width: 725px;
+}
+ 
+input[type = "submit"]:hover{
+    background: #3790f4;
+}
+
+/* adjust image and place close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.box-logo {
+    width: 200px;
+	height:150px;
+}
+
+/* login box form */
+.form {
+	display:none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* login box form content */
+.form-content {
+    background-color: #fefefe;
+    margin: 10% auto 15% auto;
+    border: 3px solid black;
+    border-radius: 5%;
+    width: 60%;
+	padding-bottom: 50px;
+}
+
+/* close button */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Zoom Animation */
+.animate {
+    animation: zoom 0.6s
+}
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Grid helper */
+.eleven {
+	width: 91.5%;
+	float: left;
+	margin-left: 2%;
+}
+.ten {
+	width: 83%;
+	float: left;
+	margin-left: 2%;
+}
+.nine {
+	width: 74.5%;
+	float: left;
+	margin-left: 2%;
+}
+.eight {
+	width: 66%;
+	float: left;
+	margin-left: 2%;
+}
+.seven {
+	width: 57.5%;
+	float: left;
+	margin-left: 2%;
+}
+.six {
+	width: 49%;
+	float: left;
+	margin-left: 2%;
+}
+.five {
+	width: 40.5%;
+	margin-left: 2%;
+	float:left;
+}
+.four {
+	width: 32%;
+	float:left;
+	margin-left: 2%;
+}
+.three {
+	width: 23.5%;
+	float:left;
+	margin-left: 2%;
+}
+.two {
+	width: 15%;
+	float:left;
+	margin-left: 2%;
+
+}
+.one {
+	width: 6.5%;
+	float:left;
+	margin-left: 2%;
+}
+.row {
+	width: 100%;
+	clear: both; /* clear creates new styles for next row */
+	padding: 0px;
+	margin: 0px;
+}
