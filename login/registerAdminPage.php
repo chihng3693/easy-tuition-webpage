@@ -24,7 +24,7 @@
         <input type="password" name="pswd" placeholder="Password">
         <br>
         <label>Name</label>
-        <input type="text" name="uname" placeholder="Name">
+        <input type="text" name="name" placeholder="Name">
         <br>
         <label>Phone Number</label>
         <input type="text" name="phone" placeholder="Phone Number">
@@ -58,7 +58,7 @@
             <option value="Putrajaya">Putrajaya</option>
         </select>
         <label>Number of Subjects</label>
-        <input type="text" name="city" placeholder="Number of Subjects">
+        <input type="text" name="numOfSubjects" placeholder="Number of Subjects">
         <br>
         <br>
         <a  style="margin-left:18px; text-decoration: none;" href="../index.php">Back</a>
