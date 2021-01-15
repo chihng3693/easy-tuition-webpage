@@ -67,6 +67,7 @@
             <option value="Putrajaya">Putrajaya</option>
         </select>
         <br>
+				<a href="registerAdminPage.php">Register as Tuition Centers</a>
         <a  style="margin-left:18px; text-decoration: none;" href="../index.php">Back</a>
         <button type="submit">Sign Up</button>
     </form>
