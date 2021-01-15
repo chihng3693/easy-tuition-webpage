@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['userEmail']) && isset($_SESSION['userPassword'])) {
+
+		include("../login/connection.php");
+
+		$userID = $_SESSION['userID'];
+        $query = "SELECT * FROM users WHERE userID='$userID'";
+        $query = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -23,6 +36,7 @@
                     <li> <a href="../announcement/announcement.php">Announcement</a> </li>
                     <li> <a href="../payment/payment.php">Payment</a> </li>
                     <li> <a href="profile.php">Profile</a> </li>
+					<li><button><a href="../logout.php">Logout</a></button></li>
                 </ul>
             </nav>
         </header>
@@ -34,12 +48,9 @@
 		<div class="profile-main">
 			<div class="profile-header">
 				<div class="user-detail">
-					<div class="user-image">
-					<img src="user1.png"> 
-					</div>
 					<div class="user-data">
-						<br><br>
-						<h2>Nurul Adlina Ibrahim</h2>
+						<h2> <?php echo $row['userName']; ?> </h2>
+						<p> User ID: <?php echo $row['userID']; ?> </p>
 					</div>
 				</div>
 				<div class="tab-panel-main">
@@ -50,54 +61,88 @@
 					
 					<div id="Class-detail" class="tab-content current">
 						<div class="class-box">
-							<form method="post" action="#">
-								<h4>My Enroll Course(s) </h4>
-								<div>
-									<input type="checkbox" name="math-class" id="math">
-									<label for="math">Mathematics</label>
-									<div class="reveal-if-active">
-										<ul>
-											<li><strong>Tuition Center:</strong> Gemilang Tuition Center</li>
-											<li><strong>Teacher Name:</strong> Miss Amy</li>
-											<li><strong> Last Day Attended:</strong> 2/12/2020</li>
-										</ul>
-									</div>
-								</div> 
+							<h4>My Enroll Course(s) </h4>
+								
+								<?php
 
-								<div>
-									<input type="checkbox" name="science-class" id="science">
-									<label for="science">Sciences</label>
-									<div class="reveal-if-active">
-										<ul>
-											<li><strong>Tuition Center:</strong> Gemilang Tuition Center</li>
-											<li><strong>Teacher Name:</strong> Madam Pameela</li>
-											<li><strong> Last Day Attended:</strong> 5/12/2020</li>
-										</ul>
+									$queryGetTuition = "SELECT * FROM user_class_bridge WHERE userID='$userID'";
+									$queryGetTuition = mysqli_query($conn, $queryGetTuition);
+									$getRows = mysqli_num_rows($queryGetTuition);
+
+									if($getRows > 0){
+										while($getRows = mysqli_fetch_assoc($queryGetTuition)) {
+											$classID = $getRows['classesID'];
+											
+											//get class info
+											$queryGetTID = "SELECT * FROM tuition_classes WHERE classesID='$classID'";
+											$queryGetTID = mysqli_query($conn, $queryGetTID);
+											$row1 = mysqli_fetch_assoc($queryGetTID);
+
+											$subject = $row1['classesSubject'];
+											$teacher = $row1['classesTeacher'];
+											$day = $row1['classesDay'];
+											$time = $row1['classesStartTime'] . " - " . $row1['classesEndTime'];;
+											$price = $row1['classesPrice'];
+											
+											//get tuition_class_bridge
+											$queryGetTID = "SELECT * FROM tuition_class_bridge WHERE classesID='$classID'";
+											$queryGetTID = mysqli_query($conn, $queryGetTID);
+											$row2 = mysqli_fetch_assoc($queryGetTID);
+											$tuitionID = $row2['tuitionID'];
+
+											//get tuition_centers
+											$queryGetTName = "SELECT * FROM tuition_centers WHERE tuitionID='$tuitionID'";
+											$queryGetTName = mysqli_query($conn, $queryGetTName);
+											$row3 = mysqli_fetch_assoc($queryGetTName);
+											
+											$tuitionName = $row3['tuitionName'];
+								?>
+								
+									<div>
+										<input type="checkbox">
+										<label> <?php echo $subject ?> </label>
+										<div class="reveal-if-active">
+											<ul>
+												<li><strong>Tuition Center:</strong> <?php echo $tuitionName ?> </li>
+												<li><strong>Teacher Name:</strong> <?php echo $teacher ?> </li>
+												<li><strong>Teacher Name:</strong> <?php echo $day ?> </li>
+												<li><strong>Class Time:</strong> <?php echo $time ?> </li>
+												<li><strong>Price:</strong> <?php echo $price ?> </li>
+											</ul>
+										</div>
 									</div>
-								</div>
-							</form>
+								
+								<?php
+										}
+									}
+									else {
+										echo "Result not found";
+									}
+								?>
+						
 						</div>
 					</div>
 
 					<div id="User-detail" class="tab-content">
 						<div class="detail-box">
-							<h4>CONTACT INFORMATION</h4>
-							<div class="title">Phone: </div>
-							<div class="info">010-1123458</div><br>
-							<div class="title">E-mail: </div>
-							<div class="info"><a href="mailto:adlina@mail.com">adlina@mail.com</a></div><br>
-							<div class="title">Address: </div>
-							<div class="info">Kampung Dua Bukit, Gelugor, 11700, Penang</div>
-
 							<h4>BASIC INFORMATION</h4>
 							<div class="title">IC Number: </div>
-							<div class="info">990723-07-6702</div><br>
-							<div class="title">Age: </div>
-							<div class="info">21</div><br>
+							<div class="info"> <?php echo $row['userIC'] ?> </div><br>
 							<div class="title">Gender: </div>
-							<div class="info">Female</div><br>
+							<div class="info"> <?php echo $row['userGender'] ?> </div><br>
+							<br>
+							<h4>CONTACT INFORMATION</h4>
+							<div class="title">Phone: </div>
+							<div class="info"> <?php echo $row['userPhone']; ?> </div><br>
+							<div class="title">E-mail: </div>
+							<div class="info"> <?php echo $_SESSION['userEmail'] ?> </div><br>
+							<div class="title">Address: </div>
+							<?php $address = $row['userStreet'] . ", " . $row['userPoscode'] . ", " . $row['userCity'] . ", " 
+							. $row['userState']; ?>
+							<div class="info"> <?php echo $address ?> </div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 			<div class="footer-box"></div>
@@ -150,3 +195,10 @@
 	</script>
 </body>
 </html>
+
+<?php
+    } else {
+        header("Location: index.php");
+        exit();
+    }
+?>
