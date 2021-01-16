@@ -19,6 +19,12 @@
         <label>Password</label>
         <input type="password" name="pswd" placeholder="Password">
         <br>
+				<label>User Type</label>
+        <select id="userType" name="userType">
+            <option value="student">Student</option>
+            <option value="tuition_center">Tuition Center</option>
+        </select>
+        <br>
         <a  style="margin-left:18px; text-decoration: none;" href="../index.php">Back</a>
         <button type="submit">Login</button>
     </form>
