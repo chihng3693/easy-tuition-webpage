@@ -23,6 +23,7 @@
         $tposcode = validate($_POST['poscode']);
         $tcity = validate($_POST['city']);
         $tstate = validate($_POST['state']);
+        $numOfSubjects = 0;
 
 
         if(empty($tuitionemail) || empty($tpassword) || empty($tname) || empty($tphone)  || empty($tstreet)
@@ -45,7 +46,7 @@
 
             } else {
                 $sqlpush = "INSERT INTO users(tuitionEmail, tuitionPassword, tuitionName, tuitionPhone, tuitionStreet, tuitionPoscode, tuitionCity, tuitionState, numOfSubjects)
-                VALUES('$tuitionemail', '$tpassword', '$tname', '$identNum', '$tphone', '$gender', '$tstreet', '$tposcode', '$tcity', '$tstate', '0')";
+                VALUES('$tuitionemail', '$tpassword', '$tname', '$identNum', '$tphone', '$gender', '$tstreet', '$tposcode', '$tcity', '$tstate', '$numOfSubjects')";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
