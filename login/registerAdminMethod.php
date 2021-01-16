@@ -43,7 +43,7 @@
                 exit();
 
             } else {
-                $sqlpush = "INSERT INTO tuition_centers(tuitionEmail, tuitionPassword, tuitionName, tuitionPhone, tuitionStreet, tuitionPoscode, tuitionCity, tuitionState, numOfSubjects)
+                $sqlpush = "INSERT INTO tuition_centers (tuitionEmail, tuitionPassword, tuitionName, tuitionPhone, tuitionStreet, tuitionPoscode, tuitionCity, tuitionState, numOfSubjects)
                 VALUES('$useremail', '$password', '$name', '$phone', '$street', '$poscode', '$city', '$state', '$numOfSubjects')";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
