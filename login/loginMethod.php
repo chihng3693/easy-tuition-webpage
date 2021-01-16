@@ -52,10 +52,6 @@
           } else if($_POST['userType'] === "tuitionCenter"){
             $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$useremail' AND tuitionPassword='$password'";
 
-            if($sql) {
-              header("Location: loginPage.php?error=Incorrect Email or Password2");
-            }
-
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) === 1) {
@@ -68,11 +64,11 @@
                     header("Location: ../userhome/userhome.php");
                     exit();
                 } else {
-                    //header("Location: loginPage.php?error=Incorrect Email or Password1");
+                    header("Location: loginPage.php?error=Incorrect Email or Password1");
                     exit();
                 }
             } else {
-                header("Location: loginPage.php?error=Incorrect Email or Password2");
+                //header("Location: loginPage.php?error=Incorrect Email or Password2");
                 exit();
             }
 
