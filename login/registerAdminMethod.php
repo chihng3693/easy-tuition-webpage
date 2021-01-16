@@ -39,7 +39,7 @@
 
             if(mysqli_num_rows($result) > 0) {
 
-                header("Location: registerPage.php?error=Email Taken");
+                header("Location: registerAdminPage.php?error=Email Taken");
                 exit();
 
             } else {
