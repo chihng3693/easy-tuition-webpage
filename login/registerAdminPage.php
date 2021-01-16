@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<form action="registerMethod.php" method="post">
+	<form action="registerAdminMethod.php" method="post">
         <h2> Tuition Center Sign Up </h2>
         <?php if(isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
@@ -61,7 +61,6 @@
         <input type="text" name="numOfSubjects" placeholder="Number of Subjects">
         <br>
 				<a href="registerPage.php">Register as Users</a>
-        <br>
         <a  style="margin-left:18px; text-decoration: none;" href="../index.php">Back</a>
         <button type="submit">Sign Up</button>
     </form>
