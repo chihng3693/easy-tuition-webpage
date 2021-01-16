@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up Form</title>
-	<link rel="stylesheet" type="text/css" href="login.css?v=<?php echo time(); ?>">
+	<title>Tuition SignUp Form</title>
+	<link rel="stylesheet" type="text/css" href="Tsignup.css?v=<?php echo time(); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-	<form action="registerMethod.php" method="post">
-        <h2> User Sign Up </h2>
+	<form action="TregisterMethod.php" method="post">
+        <h2> Tuition Sign Up </h2>
         <?php if(isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
@@ -23,21 +23,14 @@
         <label>Password</label>
         <input type="password" name="pswd" placeholder="Password">
         <br>
-        <label>Name</label>
-        <input type="text" name="uname" placeholder="Name">
+        <label>Tuition Name</label>
+        <input type="text" name="Tuiname" placeholder="Name">
         <br>
-        <label>Identification Number</label>
-        <input type="text" name="uic" placeholder="Identification Number">
-        <br>
+
         <label>Phone Number</label>
         <input type="text" name="phone" placeholder="Phone Number">
         <br>
-        <label>Gender</label>
-        <select id="gender" name="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <br>
+
         <label>Street</label>
         <input type="text" name="street" placeholder="Street Name">
         <br>
@@ -67,7 +60,7 @@
             <option value="Putrajaya">Putrajaya</option>
         </select>
         <br>
-				<a href="TregisterPage.php">Register as Tuition Centers</a>
+				<a href="registerPage.php">Register as Users</a>
         <a  style="margin-left:18px; text-decoration: none;" href="../index.php">Back</a>
         <button type="submit">Sign Up</button>
     </form>
