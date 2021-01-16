@@ -28,7 +28,7 @@
                     <li> <a href="announcement.php">Announcement</a> </li>
                     <li> <a href="../payment/payment.php">Payment</a> </li>
                     <li> <a href="../userprofile/profile.php">Profile</a> </li>
-                    <li><button>Hi, <?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li>
+                    <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
                 </ul>
             </nav>
         </header>
@@ -45,7 +45,7 @@
 
             $userID = $_SESSION['userID'];
 
-            $getAnnounceId = "SELECT * FROM annoucementbridge WHERE userID='$userID'";
+            $getAnnounceId = "SELECT * FROM announcementbridge WHERE userID='$userID'";
             
             $getAnnounceId = mysqli_query($conn, $getAnnounceId);
             $announceRows = mysqli_num_rows($getAnnounceId);
@@ -54,6 +54,7 @@
                 while($announceRows = mysqli_fetch_assoc($getAnnounceId)) {
                 
                     $announceID = $announceRows['announcementID'];
+                    $classID = $announceRows['classesID'];
                     
                     $query = "SELECT * FROM announcement WHERE announcementID='$announceID'";
 
@@ -66,12 +67,25 @@
                             $detail = $rows['announcementDetail'];
                             $date = $rows['announcementDate'];
                             $time = $rows['announcementTime'];
+
+                            //get tuition_class_bridge
+							$queryGetTID = "SELECT * FROM tuition_class_bridge WHERE classesID='$classID'";
+							$queryGetTID = mysqli_query($conn, $queryGetTID);
+							$row1 = mysqli_fetch_assoc($queryGetTID);
+							$tuitionID = $row1['tuitionID'];
+
+							//get tuition_centers
+							$queryGetTName = "SELECT * FROM tuition_centers WHERE tuitionID='$tuitionID'";
+							$queryGetTName = mysqli_query($conn, $queryGetTName);
+							$row2 = mysqli_fetch_assoc($queryGetTName);
+											
+							$tuitionName = $row2['tuitionName'];
         ?>
 
             <div class="card">
                 <div class="container">
                     <ul>
-                        <li>Kumon Tuition Centre</li>
+                        <li> <?php echo $tuitionName ?> </li>
                         <li> <?php echo $date ?> </li>
                         <li> <?php echo $time ?> </li>
                     </ul>
