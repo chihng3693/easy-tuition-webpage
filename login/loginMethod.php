@@ -50,14 +50,14 @@
             }
 
           } else if($_POST['userType'] === "tuition_center"){
-            $sql = "SELECT * FROM users WHERE userEmail='$useremail' AND userPassword='$password'";
+            $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$useremail' AND tuitionPassword='$password'";
 
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
 
-                if($row['userEmail'] === $useremail && $row['userPassword'] === $password){
+                if($row['tuitionEmail'] === $useremail && $row['tuitionPassword'] === $password){
                     $_SESSION['userID'] = $row['userID'];
                     $_SESSION['userEmail'] = $row['userEmail'];
                     $_SESSION['userPassword'] = $row['userPassword'];
