@@ -3,7 +3,7 @@
     include("connection.php");
 
     if(isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['uname']) && isset($_POST['phone'])  && isset($_POST['gender'])
-    && isset($_POST['street']) && isset($_POST['poscode']) && isset($_POST['city']) && isset($_POST['state']) && isset($_POST['submit'])){
+    && isset($_POST['street']) && isset($_POST['poscode']) && isset($_POST['city']) && isset($_POST['state'])){
 
         function validate($data){
             $data = trim($data);
