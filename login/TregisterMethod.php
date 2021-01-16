@@ -35,7 +35,7 @@
             //hashing tpassword
             $tpassword = md5($tpassword);
 
-            $sql = "SELECT * FROM users WHERE tuitionEmail='$tuitionemail' ";
+            $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$tuitionemail' ";
 
             $result = mysqli_query($conn, $sql);
 
