@@ -49,7 +49,7 @@
                 exit();
             }
 
-          } else if($_POST['userType'] === "tuition_center"){
+          } else if($_POST['userType'] === "tuitionCenter"){
             $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$useremail' AND tuitionPassword='$password'";
 
             $result = mysqli_query($conn, $sql);
