@@ -64,11 +64,11 @@
                     header("Location: ../userhome/userhome.php");
                     exit();
                 } else {
-                    header("Location: loginPage.php?error=Incorrect Email or Password");
+                    header("Location: loginPage.php?error=Incorrect Email or Password1");
                     exit();
                 }
             } else {
-                header("Location: loginPage.php?error=Incorrect Email or Password");
+                header("Location: loginPage.php?error=Incorrect Email or Password2");
                 exit();
             }
 
