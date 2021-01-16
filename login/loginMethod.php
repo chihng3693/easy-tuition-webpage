@@ -58,9 +58,9 @@
                 $row = mysqli_fetch_assoc($result);
 
                 if($row['tuitionEmail'] === $useremail && $row['tuitionPassword'] === $password){
-                    $_SESSION['userID'] = $row['tuitionID'];
-                    $_SESSION['userEmail'] = $row['tuitionEmail'];
-                    $_SESSION['userPassword'] = $row['tuitionPassword'];
+                    $_SESSION['tuitionID'] = $row['tuitionID'];
+                    $_SESSION['tuitionEmail'] = $row['tuitionEmail'];
+                    $_SESSION['tuitionPassword'] = $row['tuitionPassword'];
                     header("Location: ../userhome/userhome.php");
                     exit();
                 } else {
