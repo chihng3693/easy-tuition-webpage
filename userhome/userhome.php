@@ -27,7 +27,7 @@
                     <li> <a href="../announcement/announcement.php">Announcement</a> </li>
                     <li> <a href="../payment/payment.php">Payment</a> </li>
                     <li> <a href="../userprofile/profile.php">Profile</a> </li>
-                    <li><button>Hi, <?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li>
+                    <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
                     <!--li> <p> Hi, </p><a href="../logout.php">Logout</a> </li-->
                 </ul>
             </nav>
@@ -91,19 +91,22 @@
                 $queryGetTName = mysqli_query($conn, $queryGetTName);
                 $row2 = mysqli_fetch_assoc($queryGetTName);
                 
-                $tuitionName = $row2['tuitionName']
+                $tuitionName = $row2['tuitionName'];
     ?>
                 <div class="card">
                     <div class="container">
                         <ul>
+                            <li>ID: <?php echo $classID ?> </li>
                             <li> <?php echo $tuitionName ?> </li>
                             <li> <?php echo $subject ?> </li>
                             <li> <?php echo $price ?> </li>
-                            <li><button>Register</button></li>
+                            <li>
+                                <button onclick="document.location.href='tuitionRegister.php'">Register</button>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
-
     <?php
             }
         }
@@ -126,6 +129,19 @@
     ?>
         </div>
     </section>
+
+    <?php
+    
+    /*
+    if (isset($_GET["register"])) {
+
+        echo $_SESSION['userID'];
+        echo "Success";
+                } else {
+                    echo "Failed";
+                }
+    */
+    ?>
 
     <div class="row">
         <footer>
