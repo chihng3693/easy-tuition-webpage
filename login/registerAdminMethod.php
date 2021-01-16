@@ -2,7 +2,7 @@
     session_start();
     include("connection.php");
 
-    if(isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['name']) && isset($_POST['phone'])  && isset($_POST['gender'])
+    if(isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['name']) && isset($_POST['phone'])
     && isset($_POST['street']) && isset($_POST['poscode']) && isset($_POST['city']) && isset($_POST['state'] && isset($_POST['numOfSubjects'])){
 
         function validate($data){
