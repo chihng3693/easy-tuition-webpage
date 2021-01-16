@@ -54,7 +54,7 @@
 
             $result = mysqli_query($conn, $sql);
 
-            if(mysqli_num_rows($result) > 0) {
+            if(mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
 
                 if($row['tuitionEmail'] === $useremail && $row['tuitionPassword'] === $password){
@@ -68,7 +68,7 @@
                     exit();
                 }
             } else {
-                header("Location: loginPage.php?error=Incorrect Email or Password2234");
+                header("Location: loginPage.php?error=Incorrect Email or Password");
                 exit();
             }
           }
