@@ -26,10 +26,11 @@
             header("Location: loginPage.php?error=Password is required");
             exit();
         } else {
+          if($_POST['userType'] === "student"){
             $sql = "SELECT * FROM users WHERE userEmail='$useremail' AND userPassword='$password'";
 
             $result = mysqli_query($conn, $sql);
-            
+
             if(mysqli_num_rows($result) === 1) {
                 $row = mysqli_fetch_assoc($result);
 
@@ -40,14 +41,37 @@
                     header("Location: ../userhome/userhome.php");
                     exit();
                 } else {
-                    header("Location: loginPage.php?error=Incorrect Email or Password");
+                    header("Location: loginPage.php?error=Incorrect Email or Password1");
                     exit();
                 }
             } else {
-                header("Location: loginPage.php?error=Incorrect Email or Password");
+                header("Location: loginPage.php?error=Incorrect Email or Password2");
                 exit();
             }
 
+          } else if($_POST['userType'] === "tuitionCenter"){
+            $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$useremail' AND tuitionPassword='$password'";
+
+            $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) === 1) {
+                $row = mysqli_fetch_assoc($result);
+
+                if($row['tuitionEmail'] === $useremail && $row['tuitionPassword'] === $password){
+                    $_SESSION['userID'] = $row['userID'];
+                    $_SESSION['userEmail'] = $row['userEmail'];
+                    $_SESSION['userPassword'] = $row['userPassword'];
+                    header("Location: ../userhome/userhome.php");
+                    exit();
+                } else {
+                    header("Location: loginPage.php?error=Incorrect Email or Password1123");
+                    exit();
+                }
+            } else {
+                header("Location: loginPage.php?error=Incorrect Email or Password2234");
+                exit();
+            }
+          }
         }
     } else {
         header("Location: loginPage.php");
