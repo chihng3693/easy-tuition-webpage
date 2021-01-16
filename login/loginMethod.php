@@ -54,21 +54,21 @@
 
             $result = mysqli_query($conn, $sql);
 
-            if(mysqli_num_rows($result) === 1) {
+            if(mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
 
                 if($row['tuitionEmail'] === $useremail && $row['tuitionPassword'] === $password){
-                    $_SESSION['tuitionID'] = $row['tuitionID'];
-                    $_SESSION['tuitionEmail'] = $row['tuitionEmail'];
-                    $_SESSION['tuitionPassword'] = $row['tuitionPassword'];
+                    $_SESSION['userID'] = $row['tuitionID'];
+                    $_SESSION['userEmail'] = $row['tuitionEmail'];
+                    $_SESSION['userPassword'] = $row['tuitionPassword'];
                     header("Location: ../userhome/userhome.php");
                     exit();
                 } else {
-                    header("Location: loginPage.php?error=Incorrect Email or Password1");
+                    header("Location: loginPage.php?error=Incorrect Email or Password");
                     exit();
                 }
             } else {
-                //header("Location: loginPage.php?error=Incorrect Email or Password2");
+                header("Location: loginPage.php?error=Incorrect Email or Password");
                 exit();
             }
 
