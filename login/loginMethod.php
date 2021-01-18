@@ -61,7 +61,7 @@
                     $_SESSION['userID'] = $row['tuitionID'];
                     $_SESSION['userEmail'] = $row['tuitionEmail'];
                     $_SESSION['userPassword'] = $row['tuitionPassword'];
-                    header("Location: ../userhome/userhome.php");
+                    header("Location: ../tuition/tuitionhome.php");
                     exit();
                 } else {
                     header("Location: loginPage.php?error=Incorrect Email or Password");
