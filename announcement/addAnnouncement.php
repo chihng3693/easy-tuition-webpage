@@ -17,7 +17,7 @@
                 <ul>
                     <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
                     <li> <a href="userhome.php">Home</a> </li>
-                    <li> <a href="">Announcement</a> </li>
+                    <li> <a href="">Add Announcement</a> </li>
                     <li> <a href="">Payment</a> </li>
                     <li> <a href="">Profile</a> </li>
                 </ul>
@@ -29,23 +29,21 @@
     <!--announcement-body-->
     <section>
         <div id="announcement" class="row">
-            <h1>Post Annoucement</h1>
+            <h1>Add Annoucement</h1>
             <div class="feedback">
               <p>Subject:
                 <select id="subject" name="subject">
-                  <option value="Internet Explorer">test</option>
-                  <option value="Firefox">test</option>
-                  <option value="Chrome">test</option>
-                  <option value="Opera">test</option>
-                  <option value="Safari">test</option>
+                  <option value="Internet Explorer">English</option>
+                  <option value="Firefox">Mathematics</option>
+                  <option value="Chrome">Bahasa Malaysia</option>
+                  <option value="Opera">Science</option>
+                  <option value="Safari">Chinese</option>
                 </select>
               </p>
-              <p>Annoucement Title</p>
-              <input type="text" name="title" placeholder="Annoucement Title">
               <p>Annoucement Notice</p>
               <textarea rows="6" cols="60" name="details"></textarea>
               <br></br>
-              <button>Submit Annoucement</button>
+              <button type="submit">Submit Annoucement</button>
             </div>
         </div>
     </section>

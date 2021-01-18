@@ -12,25 +12,23 @@
             return $data;
         }
 
-        $subject = validate($_POST['subject']);
-        $title = validate($_POST['title']);
         $details = validate($_POST['details']);
         $date = date('m/d/Y');
-        $time = date('H:i:s');
+        $time = date('H:i a');
 
-        if(empty($subject) || empty($title) || empty($details)){
+        if(empty($details)){
             header("Location: registerPage.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-              $sqlpush = "INSERT INTO announcement(announcementTitle, announcementDetails, announcementDate, announcementTime)
-              VALUES('$subject', '$title', '$details', '$date', '$time')";
+              $sqlpush = "INSERT INTO announcement(announcementDetails, announcementDate, announcementTime)
+              VALUES('$details', '$date', '$time')";
               $resultpush = mysqli_query($conn, $sqlpush);
 
               if($resultpush){
-                  header("Location: registerPage.php?success=Announcement has been posted!");
+                  header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
                   exit();
               } else{
-                  header("Location: registerPage.php?error=Unknown error occurred");
+                  header("Location: addAnnouncementPage.php?error=Unknown error occurred");
                   exit();
               }
         }
