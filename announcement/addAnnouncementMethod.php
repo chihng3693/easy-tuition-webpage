@@ -2,7 +2,7 @@
     session_start();
     include("connection.php");
 
-    if(isset($_POST['subject']) && isset($_POST['title']) && isset($_POST['details'])){
+    if(isset($_POST['submit'])){
 
         function validate($data){
             $data = trim($data);
