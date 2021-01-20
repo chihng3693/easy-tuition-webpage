@@ -24,18 +24,18 @@
 
         if(empty($tname) || empty($tphone)  || empty($tstreet)
             || empty($tposcode) || empty($tcity) || empty($tstate)){
-            //header("Location: editTuitionProfile.php?error=Cannot Leave any Field Blank");
+            header("Location: editTuitionProfile.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-                $sqlpush = "UPDATE tuition_centers SET tuitionName='$tname', tuitionPhone='$tphone', tuitionStreet='$tstreet', tuitionPoscode='$tposcode', tuitionCity='$tcity', tuitionState='$tstate'
-                WHERE tuitionID='$tuitionID' ";
+                $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
+                VALUES('hh', 'dfgdfg', 'dfgdfg')";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
-                    //header("Location: editTuitionProfile.php?success=Profile has been edited!");
+                    header("Location: editTuitionProfile.php?success=Profile has been edited!");
                     exit();
                 } else{
-                    //header("Location: editTuitionProfile.php?error=Unknown error occurred");
+                    header("Location: editTuitionProfile.php?error=Unknown error occurred");
                     exit();
                 }
             }
