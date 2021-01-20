@@ -33,6 +33,7 @@
     <!--announcement-body-->
     <section>
         <div id="announcement" class="row">
+          <form action="registerMethod.php" method="post">
             <h1>Add Annoucement</h1>
             <div class="feedback">
               <p>Subject:
@@ -44,6 +45,7 @@
               <textarea rows="6" cols="60" name="details"></textarea>
               <br></br>
               <button type="submit">Submit Annoucement</button>
+              </form>
             </div>
         </div>
     </section>
