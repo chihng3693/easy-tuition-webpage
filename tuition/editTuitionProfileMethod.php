@@ -31,7 +31,7 @@
             $resultpush = mysqli_query($conn, $sqlpush);
 
             if($resultpush){
-                header("Location: editTuitionProfile.php?success=Account has been created!");
+                header("Location: editTuitionProfile.php?success=Profile has been updated!");
                 exit();
             } else{
                 header("Location: editTuitionProfile.php?error=Unknown error occurred");
