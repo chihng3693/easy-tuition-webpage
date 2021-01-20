@@ -2,7 +2,7 @@
     session_start();
     include("connection.php");
 
-    isset($_POST['Tuiname']) && isset($_POST['phone'])
+    if(isset($_POST['Tuiname']) && isset($_POST['phone'])
     && isset($_POST['street']) && isset($_POST['poscode']) && isset($_POST['city']) && isset($_POST['state'])){
 
         function validate($data){
@@ -27,8 +27,8 @@
             header("Location: editTuitionProfile.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-                $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
-                VALUES('hh', 'dfgdfg', 'dfgdfg')";
+                $sqlpush = "UPDATE tuition_centers SET tuitionName='$tname', tuitionPhone='$tphone', tuitionStreet='$tstreet', tuitionPoscode='$tposcode', tuitionCity='$tcity', tuitionState='$tstate'
+                WHERE tuitionID='$tuitionID' ";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
