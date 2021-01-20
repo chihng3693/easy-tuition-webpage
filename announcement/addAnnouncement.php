@@ -2,9 +2,6 @@
 <html>
 <?php
     session_start();
-
-    if (isset($_SESSION['userEmail']) && isset($_SESSION['userPassword'])) {
-
 ?>
 
 <head>
