@@ -20,7 +20,7 @@
             header("Location: addAnnouncementPage.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-              $sqlpush = "INSERT INTO announcement(announcementDetails, announcementDate, announcementTime)
+              $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
               VALUES('$details', '$date', '$time')";
               $resultpush = mysqli_query($conn, $sqlpush);
 
