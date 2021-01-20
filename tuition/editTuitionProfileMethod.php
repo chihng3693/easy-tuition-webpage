@@ -4,7 +4,6 @@
 
     if(isset($_POST['Tuiname']) && isset($_POST['phone'])
     && isset($_POST['street']) && isset($_POST['poscode']) && isset($_POST['city']) && isset($_POST['state'])){
-
         function validate($data){
             $data = trim($data);
             $data = stripslashes($data);
@@ -28,7 +27,7 @@
             exit();
         } else {
                 $sqlpush = "UPDATE tuition_centers SET tuitionName='$tname', tuitionPhone='$tphone', tuitionStreet='$tstreet', tuitionPoscode='$tposcode', tuitionCity='$tcity', tuitionState='$tstate'
-                WHERE tuitionID='$tuitionID' ";
+                WHERE tuitionID='$tuitionID'";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
@@ -39,8 +38,6 @@
                     exit();
                 }
           }
-
-
     }
     else {
         header("Location: editTuitionProfile.php");
