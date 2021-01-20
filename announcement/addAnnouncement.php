@@ -33,7 +33,7 @@
     <!--announcement-body-->
     <section>
         <div id="announcement" class="row">
-          <form action="registerMethod.php" method="post">
+          <form action="addAnnouncementMethod.php" method="post">
             <h1>Add Annoucement</h1>
             <div class="feedback">
               <p>Subject:
