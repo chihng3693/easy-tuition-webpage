@@ -39,10 +39,7 @@
             <div class="feedback">
               <p>Subject:
                 <select id="subject" name="subject">
-                  <?php
-                    include("connection.php");
-                    $sql = mysqli_query($conn, "SELECT classesID FROM tuition_class_bridge WHERE tuitionID = '$_SESSION['userID']' ");
-                  ?>
+
                 </select>
               </p>
               <p>Annoucement Notice</p>
