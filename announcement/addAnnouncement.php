@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<?php
+    session_start();
+
+    if (isset($_SESSION['userEmail']) && isset($_SESSION['userPassword'])) {
+
+?>
 
 <head>
     <title>Assignment 2 CPT211</title>
@@ -33,11 +39,16 @@
             <div class="feedback">
               <p>Subject:
                 <select id="subject" name="subject">
-                  <option value="Internet Explorer">English</option>
-                  <option value="Firefox">Mathematics</option>
-                  <option value="Chrome">Bahasa Malaysia</option>
-                  <option value="Opera">Science</option>
-                  <option value="Safari">Chinese</option>
+                  <?php
+                    include("connection.php");
+                    $sql = mysqli_query($conn, "SELECT classesID FROM tuition_class_bridge WHERE tuitionID = '$_SESSION['userID']' ");
+                    while ($row = $sql->fetch_assoc()){
+                        $classesID = $row['classesID'];
+                        $query = mysqli_query($conn, "SELECT classesName FROM tuition_classes WHERE classesID = '$classesID' ");
+                        $row1 = mysqli_fetch_assoc($query);
+                        echo "<option value=".$classesID.">" . $row1['classesName'] . "</option>";      
+                    }
+                  ?>
                 </select>
               </p>
               <p>Annoucement Notice</p>
