@@ -46,7 +46,7 @@
                         $classesID = $row['classesID'];
                         $query = mysqli_query($conn, "SELECT classesName FROM tuition_classes WHERE classesID = '$classesID' ");
                         $row1 = mysqli_fetch_assoc($query);
-                        echo "<option value=".$classesID.">" . $row1['classesName'] . "</option>";      
+                        echo "<option value="'.$classesID.'">" '.$row1['classesName'].' "</option>";      
                     }
                   ?>
                 </select>
