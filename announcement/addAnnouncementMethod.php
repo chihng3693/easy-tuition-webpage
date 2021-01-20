@@ -13,8 +13,8 @@
         }
 
         $details = validate($_POST['details']);
-        $date = date('m/d/Y');
-        $time = date('H:i a');
+        $date = 'sadasd';
+        $time = 'asdasd';
 
         if(empty($details)){
             header("Location: addAnnouncementPage.php?error=Cannot Leave any Field Blank");
