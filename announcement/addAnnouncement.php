@@ -38,8 +38,7 @@
                 <select id="subject" name="subject">
                   <?php
                     include("connection.php");
-                    $sql = "SELECT * FROM tuition_class_bridge T1
-                      INNER JOIN tuition_classes T2 ON T1.classesID = T2.classesID";
+                    $sql = "SELECT * FROM tuition_class_bridge";
                     $result = ($conn, $sql);
 
                   ?>
