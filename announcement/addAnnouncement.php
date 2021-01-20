@@ -43,13 +43,6 @@
               <label>Annoucement Notice</label>
               <textarea rows="6" cols="60" name="details"></textarea>
               <br>
-              <?php if(isset($_GET['error'])) { ?>
-                  <p class="error"><?php echo $_GET['error']; ?></p>
-              <?php } ?>
-
-              <?php if(isset($_GET['success'])) { ?>
-                  <p class="success"><?php echo $_GET['success']; ?></p>
-              <?php } ?>
               <button type="submit">Submit Annoucement</button>
               </form>
             </div>
