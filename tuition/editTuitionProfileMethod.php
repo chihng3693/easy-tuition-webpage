@@ -38,9 +38,9 @@
                     header("Location: editTuitionProfile.php?error=Unknown error occurred");
                     exit();
                 }
-            }
+          }
 
-        }
+
     }
     else {
         header("Location: editTuitionProfile.php");
