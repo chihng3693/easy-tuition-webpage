@@ -22,7 +22,7 @@
         </header>
 
     </div>
-    <form action="editTuitionProfileMethod.php">
+    <form action="editTuitionProfileMethod.php" method="post">
       <div class="container">
         <h1>Edit Tuition Profile</h1>
         <p>Please fill in this form to edit the profile.</p>
