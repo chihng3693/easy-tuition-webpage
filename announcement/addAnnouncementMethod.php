@@ -13,6 +13,7 @@
         }
 
         $details = validate($_POST['details']);
+        $tuitionID = $_POST['tuitionID']
         $date = date('m/d/Y');
         $time = date('H:i a');
 

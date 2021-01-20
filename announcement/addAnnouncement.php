@@ -36,12 +36,18 @@
           <form action="addAnnouncementMethod.php" method="post">
             <h1>Add Annoucement</h1>
             <div class="feedback">
-              <p>Subject:
-                <select id="subject" name="subject">
-
-                </select>
+              <label>Tuition Class ID</label>
+              <input type="text" name="tuitionID" placeholder="Tuition Class ID">
               </p>
-              <p>Annoucement Notice</p>
+              <label>Selection</label>
+              <select>
+                <?php
+                  include("connection.php");
+                  $sql = mysqli_query($conn, "SELECT classesName FROM tuitionClasses");
+                ?>
+              </select>
+              <br>
+              <label>Annoucement Notice</label>
               <textarea rows="6" cols="60" name="details"></textarea>
               <br></br>
               <button type="submit">Submit Annoucement</button>
