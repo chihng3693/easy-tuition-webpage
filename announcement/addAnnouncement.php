@@ -38,13 +38,11 @@
                 <select id="subject" name="subject">
                   <?php
                     include("connection.php");
-                    $sql = mysqli_query($conn, "SELECT classesID FROM tuition_class_bridge WHERE tuitionID = '$_SESSION['userID']' ");
-                    while ($row = $sql->fetch_assoc()){
-                        $classesID = $row['classesID'];
-                        $query = mysqli_query($conn, "SELECT classesName FROM tuition_classes WHERE classesID = '$classesID' ");
-                        $row1 = mysqli_fetch_assoc($query);
-                        echo "<option value="'.$classesID.'">" '.$row1['classesName'].' "</option>";
-                    }
+                    $sql = "SELECT classesName FROM tuition_class_bridge INNER JOIN tuition_classes
+                    ON tuition_class_bridge.classesID = tuition_classes.classesID
+                    WHERE tuition_class_bridge.tuitionID = '$_SESSION['userID']'";
+                    $result = ($conn, $sql);
+
                   ?>
                 </select>
               </p>
