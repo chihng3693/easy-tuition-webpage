@@ -39,7 +39,7 @@
                   <?php
                     include("connection.php");
                     $sql = "SELECT classesName FROM tuition_class_bridge INNER JOIN tuition_classes
-                    WHERE tuition_class_bridge.tuitionID = '$_SESSION['userID']'";
+                    ON tuition_class_bridge.classesID = tuition_classes.classesID";
                     $result = ($conn, $sql);
 
                   ?>
