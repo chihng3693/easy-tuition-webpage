@@ -12,9 +12,9 @@
             return $data;
         }
 
-        //$details = validate($_POST['details']);
-        $details = $_SESSION['userID'];
-        $tuitionID = $_POST['tuitionID'];
+        $details = validate($_POST['details']);
+        $classesID = validate($_POST['clasesID']);
+        $tuitionID = $_POST['userID'];
         $date = date('m/d/Y');
         $time = date('H:i a');
 
@@ -22,6 +22,14 @@
             header("Location: addAnnouncementPage.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
+              $check = "SELECT * FROM tuition_class_bridge WHERE tuitionID = '$tuitionID' AND classesID = '$classesID'";
+              $result = mysqli_query($conn, $check);
+
+              if(!$result) {
+                header("Location: addAnnouncementPage.php?error=Wrong Tuition Class ID!");
+                exit();
+              }
+
               $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
               VALUES('$details', '$date', '$time')";
               $resultpush = mysqli_query($conn, $sqlpush);
