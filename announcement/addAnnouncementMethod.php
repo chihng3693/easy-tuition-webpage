@@ -28,18 +28,18 @@
               if(!$result) {
                 header("Location: addAnnouncementPage.php?error=Wrong Tuition Class ID!");
                 exit();
-              }
+              } else {
+                $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
+                VALUES('$details', '$date', '$time')";
+                $resultpush = mysqli_query($conn, $sqlpush);
 
-              $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
-              VALUES('$details', '$date', '$time')";
-              $resultpush = mysqli_query($conn, $sqlpush);
-
-              if($resultpush){
-                  header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
-                  exit();
-              } else{
-                  header("Location: addAnnouncementPage.php?error=Unknown error occurred");
-                  exit();
+                if($resultpush){
+                    header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
+                    exit();
+                } else{
+                    header("Location: addAnnouncementPage.php?error=Unknown error occurred");
+                    exit();
+                }
               }
         }
     }
