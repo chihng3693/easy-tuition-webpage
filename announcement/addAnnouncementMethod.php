@@ -13,7 +13,7 @@
         }
 
         $details = validate($_POST['details']);
-        $tuitionID = $_POST['tuitionID']
+        $tuitionID = $_POST['tuitionID'];
         $date = date('m/d/Y');
         $time = date('H:i a');
 
@@ -26,6 +26,7 @@
               $resultpush = mysqli_query($conn, $sqlpush);
 
               if($resultpush){
+                echo . $_SESSION['userID'] .;
                   header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
                   exit();
               } else{
