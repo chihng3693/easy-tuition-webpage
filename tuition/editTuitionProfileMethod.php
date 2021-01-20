@@ -14,9 +14,7 @@
         }
 
         $tname = validate($_POST['Tuiname']);
-      //  $identNum = validate($_POST['uic']);
         $tphone = validate($_POST['phone']);
-      //  $gender = validate($_POST['gender']);
         $tstreet = validate($_POST['street']);
         $tposcode = validate($_POST['poscode']);
         $tcity = validate($_POST['city']);
@@ -29,7 +27,7 @@
             exit();
         } else {
                 $sqlpush = "UPDATE tuition_centers SET tuitionName = '$tname', tuitionPhone = '$tphone', tuitionStreet = '$tstreet', tuitionPoscode = '$tposcode', tuitionCity = '$tcity', tuitionState = '$tstate'
-                WHERE tuitionID = '.$_SESSION['userID'].' ";
+                WHERE tuitionID = '1021' ";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
