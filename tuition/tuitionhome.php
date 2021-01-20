@@ -26,7 +26,8 @@
                     <li> <a href="userhome.php">Home</a> </li>
                     <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
                     <li> <a href="../payment/payment.php">Payment</a> </li>
-                    <li> <a href="../userprofile/profile.php">Profile</a> </li>
+                    <li> <a href="../tuition/addClass.php">Add Class</a> </li>
+                    <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                     <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
                     <!--li> <p> Hi, </p><a href="../logout.php">Logout</a> </li-->
                 </ul>
