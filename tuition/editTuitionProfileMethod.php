@@ -29,7 +29,7 @@
             exit();
         } else {
                 $sqlpush = "UPDATE tuition_centers SET tuitionName = '$tname', tuitionPhone = '$tphone', tuitionStreet = '$tstreet', tuitionPoscode = '$tposcode', tuitionCity = '$tcity', tuitionState = '$tstate'
-                WHERE tuitionID = '$_SESSION['userID']' ";
+                WHERE tuitionID = '.$_SESSION['userID'].' ";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
