@@ -28,29 +28,15 @@
             header("Location: editTuitionProfile.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-
-            //hashing tpassword
-            $tpassword = md5($tpassword);
-
-            $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$tuitionemail' ";
-
-            $result = mysqli_query($conn, $sql);
-
-            if(mysqli_num_rows($result) > 0) {
-
-                header("Location: editTuitionProfile.php?error=Email Taken");
-                exit();
-
-            } else {
                 $sqlpush = "UPDATE tuition_centers SET tuitionName = '$tname', tuitionPhone = '$tphone', tuitionStreet = '$tstreet', tuitionPoscode = '$tposcode', tuitionCity = '$tcity', tuitionState = '$tstate'
                 WHERE tuitionID = '$_SESSION['userID']' ";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
-                    //header("Location: TregisterPage.php?success=Account has been created!");
+                    header("Location: editTuitionProfile.php?success=Profile has been edited!");
                     exit();
                 } else{
-                    //header("Location: TregisterPage.php?error=Unknown error occurred");
+                    header("Location: editTuitionProfile.php?error=Unknown error occurred");
                     exit();
                 }
             }
