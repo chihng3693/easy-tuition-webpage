@@ -20,6 +20,8 @@
         $tstate = validate($_POST['state']);
         $tuitionID = $_SESSION('userID');
 
+        echo "asdasd";
+
     }
     else {
         header("Location: editTuitionProfile.php");
