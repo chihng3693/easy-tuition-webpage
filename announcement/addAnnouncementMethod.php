@@ -24,10 +24,6 @@
               VALUES('$details', '$date', '$time')";
               $resultpush = mysqli_query($conn, $sqlpush);
 
-              $query = "SELECT announcementID FROM announcement ORDER BY announcementID DESC LIMIT 1;";
-              $sqlpush1 = "";
-              $resultpush1 = mysqli_query($conn, $sqlpush1);
-
               if($resultpush){
                   header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
                   exit();
