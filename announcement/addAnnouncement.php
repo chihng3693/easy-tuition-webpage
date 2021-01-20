@@ -2,6 +2,7 @@
 <html>
 <?php
     session_start();
+    include("connection.php");
 ?>
 
 <head>
@@ -37,7 +38,6 @@
               <p>Subject:
                 <select id="subject" name="subject">
                   <?php
-                    include("connection.php");
                     $sql = "SELECT * FROM tuition_class_bridge";
                     $result = ($conn, $sql);
 
