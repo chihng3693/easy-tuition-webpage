@@ -37,11 +37,7 @@
             <div class="feedback">
               <p>Subject:
                 <select id="subject" name="subject">
-                  <?php
-                    $sql = "SELECT * FROM tuition_class_bridge";
-                    $result = ($conn, $sql);
 
-                  ?>
                 </select>
               </p>
               <p>Annoucement Notice</p>
