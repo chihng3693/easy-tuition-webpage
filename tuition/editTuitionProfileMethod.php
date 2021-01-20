@@ -21,13 +21,13 @@
         $tstate = validate($_POST['state']);
 
 
-        ifempty($tname) || empty($tphone)  || empty($tstreet)
+        if(empty($tname) || empty($tphone)  || empty($tstreet)
             || empty($tposcode) || empty($tcity) || empty($tstate)){
             header("Location: editTuitionProfile.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
                 $sqlpush = "UPDATE tuition_centers SET tuitionName = '$tname', tuitionPhone = '$tphone', tuitionStreet = '$tstreet', tuitionPoscode = '$tposcode', tuitionCity = '$tcity', tuitionState = '$tstate'
-                WHERE tuitionID = '1021' ";
+                WHERE tuitionID = '$_SESSION['userID']' ";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
