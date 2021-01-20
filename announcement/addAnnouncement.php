@@ -43,7 +43,9 @@
               <select>
                 <?php
                   include("connection.php");
-                  $sql = mysqli_query($conn, "SELECT classesName FROM tuitionClasses");
+                  $command = "SELECT classesName FROM tuitionClasses t1
+                  INNER JOIN tuition_class_bridge t2 ON t1.tuitionID = t2.tuitionID ";
+                  $sql = mysqli_query($conn, $command);
                 ?>
               </select>
               <br>
