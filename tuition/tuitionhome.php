@@ -41,7 +41,7 @@
             </tr>
 
             <?php
-
+            session_start();
             include("login/connection.php");
 
             //change the tuitionID get from session
