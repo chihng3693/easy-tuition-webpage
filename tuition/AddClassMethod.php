@@ -39,8 +39,6 @@
                     exit();
                 }
             }
-
-        }
     }
     else {
         header("Location: AddClass.php");
