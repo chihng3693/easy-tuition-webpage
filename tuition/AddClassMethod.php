@@ -2,7 +2,7 @@
     session_start();
     include("connection.php");
 
-    if(isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['subjName']) && isset($_POST['startime'])
+    if(isset($_POST['subjName']) && isset($_POST['startime'])
     && isset($_POST['endtime']) && isset($_POST['cday']) && isset($_POST['cprice']) && isset($_POST['cteacher'])){
 
         function validate($data){
@@ -13,41 +13,28 @@
             return $data;
         }
 
-        $tuitionemail = validate($_POST['email']);
-        $tpassword = validate($_POST['pswd']);
         $tsubj = validate($_POST['subjName']);
-      //  $identNum = validate($_POST['uic']);
         $tstartime = validate($_POST['startime']);
-      //  $gender = validate($_POST['gender']);
         $tEndtime = validate($_POST['endtime']);
         $tcday = validate($_POST['cday']);
         $tcprice = validate($_POST['cprice']);
         $tcteacher = validate($_POST['cteacher']);
-        $numOfSubjects = 0;
+        $tuitionID = $_SESSION('userID');
 
 
-        if(empty($tuitionemail) || empty($tpassword) || empty($tsubj) || empty($tstartime)  || empty($tEndtime)
+        if(empty($tsubj) || empty($tstartime)  || empty($tEndtime)
             || empty($tcday) || empty($tcprice) || empty($tcteacher)){
             header("Location: AddClass.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
+                $sqlpush = "INSERT INTO tuition_classes (classesSubject, classesStartTime, classesEndTime, classesDay, classesPrice, classesTeacher)
+                VALUES('$tsubj', '$tstartime', '$tEndtime', '$tcday', '$tcprice', '$tcteacher')";
 
-            //hashing tpassword
-            $tpassword = md5($tpassword);
-
-            $sql = "SELECT * FROM tuition_centers WHERE tuitionEmail='$tuitionemail' ";
-
-            $result = mysqli_query($conn, $sql);
-
-            if(mysqli_num_rows($result) > 0) {
-
-                header("Location: AddClass.php?error=Email Taken");
-                exit();
-
-            } else {
-                $sqlpush = "INSERT INTO tuition_centers (tuitionEmail, tuitionPassword, classesSubject, classesStartTime, classesEndTime, classesDay, classesPrice, classesTeacher)
-                VALUES('$tuitionemail', '$tpassword', '$tsubj', '$tstartime', '$tEndtime', '$tcday', '$tcprice', '$tcteacher')";
+                $sqlpush1 = "INSERT INTO tuition_class_bridge (classesID, tuitionID)
+                VALUES('6', '$tuitionID')";
+                
                 $resultpush = mysqli_query($conn, $sqlpush);
+                $resultpush = mysqli_query($conn, $sqlpush1);
 
                 if($resultpush){
                     header("Location: AddClass.php?success=Account has been created!");
