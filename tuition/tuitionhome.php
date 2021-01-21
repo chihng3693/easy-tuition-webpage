@@ -1,15 +1,8 @@
-<?php
-    session_start();
-
-    if (isset($_SESSION['userEmail']) && isset($_SESSION['userPassword'])) {
-
-?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Assignment 2 CPT211</title>
+    <title>Assignment 322</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="tuitionhomeStyle.css?v=<?php echo time(); ?>">
@@ -22,142 +15,92 @@
         <header>
             <nav>
                 <ul>
-                    <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
-                    <li> <a href="userhome.php">Home</a> </li>
-                    <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
-                    <li> <a href="viewPayment.php">Payment</a> </li>
-                    <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
-                    <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
-                    <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
-                    <!--li> <p> Hi, </p><a href="../logout.php">Logout</a> </li-->
+                  <li><img src="images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
+                  <li> <a href="tuitionhome.php">Home</a> </li>
+                  <li> <a href="addAnnouncement.php">Add Announcement</a> </li>
+                  <li> <a href="viewPayment.php">View Payment</a> </li>
+                  <li> <a href="AddClass.php">Add Class</a> </li>
+                  <li> <a href="editTuitionProfile.php">Profile</a> </li>
                 </ul>
             </nav>
         </header>
 
     </div>
 
-    <!--home-body-->
+    <!--announcement-body-->
     <section>
-        <div id="home" class="row">
-            <form method="get">
-                <input type="text" placeholder="Enter Subject" name="search">
-                <input type="submit" name="submit" value="Search">
-            </form>
-        </div>
-    </section>
+      <div id="tuitionhome" class="row">
+        <h1>View Payment</h1>
+          <table>
+            <tr>
+              <th>Class ID</th>
+              <th>Course</th>
+              <th>Teacher</th>
+              <th>Price</th>
 
-    <section>
-        <div id="sugesstion" class="row">
-    <?php
+            </tr>
 
-    include("../login/connection.php");
+            <?php
 
-    if (isset($_GET["submit"])) {
+            include("login/connection.php");
 
-        $keyword = $_GET['search'];
+            //change the tuitionID get from session
+            $tuitionID = 1000;
 
-        $terms = explode(" ", $keyword);
+            $query1 = "SELECT * FROM tuition_class_bridge WHERE tuitionID='$tuitionID'";
 
-        $query = "SELECT * FROM tuition_classes WHERE ";
+            $query1 = mysqli_query($conn, $query1);
+            $rows1 = mysqli_num_rows($query1);
 
-        $i = 0;
+            if($rows1 > 0){
+              while($rows1 = mysqli_fetch_assoc($query1)) {
 
-        //if user search multiple terms
-        foreach($terms as $each){
-            $i = $i + 1;
-            if($i == 1){
-                $query .= "classesSubject LIKE '$each'";
-            }
-            else {
-                $query .= "OR classesSubject LIKE '$each'";
-            }
-        }
+                $classesID = $rows1['classesID'];
 
-        $query = mysqli_query($conn, $query);
-        $rows = mysqli_num_rows($query);
+                //get classes ID
+                $query2 = "SELECT * FROM tuition_classes WHERE classesID='$classesID'";
+                $query2 = mysqli_query($conn, $query2);
+                $rows2 = mysqli_num_rows($query2);
 
-        if($rows > 0){
-            while($rows = mysqli_fetch_assoc($query)) {
+                if($rows2 > 0){
+                    while($rows2 = mysqli_fetch_assoc($query2)) {
 
-                $subject = $rows['classesSubject'];
-                $price = $rows['classesPrice'];
+                      $subj = $rows2['classesSubject'];
+                      $teacher = $rows2['classesTeacher'];
+                      $price = $rows2['classesPrice'];
 
-                $classID = $rows['classesID'];
-                $queryGetTID = "SELECT * FROM tuition_class_bridge WHERE classesID='$classID'";
-                $queryGetTID = mysqli_query($conn, $queryGetTID);
-                $row1 = mysqli_fetch_assoc($queryGetTID);
+                      //get class info
+                      //$queryGetStudNumber = "SELECT * FROM user_class_bridge WHERE classesID='$classesID'";
+                      //$queryGetStudNumber = mysqli_query($conn, $queryGetClass);
+                      //$row = mysqli_fetch_assoc($queryGetStudNumber);
+                      //$studNum = $row['classesID'];
+          ?>
 
-                $tuitionID = $row1['tuitionID'];
-                $queryGetTName = "SELECT * FROM tuition_centers WHERE tuitionID='$tuitionID'";
-                $queryGetTName = mysqli_query($conn, $queryGetTName);
-                $row2 = mysqli_fetch_assoc($queryGetTName);
+            <tr>
+              <td><?php echo $classesID ?></td>
+              <td><?php echo $subj?></td>
+              <td><?php echo $teacher?></td>
+              <td><?php echo $price?></td>
+            </tr>
 
-                $tuitionName = $row2['tuitionName'];
-    ?>
-                <div class="card">
-                    <div class="container">
-                        <ul>
-                            <li>ID: <?php echo $classID ?> </li>
-                            <li> <?php echo $tuitionName ?> </li>
-                            <li> <?php echo $subject ?> </li>
-                            <li> <?php echo $price ?> </li>
-                            <li>
-                                <button onclick="document.location.href='tuitionRegister.php'">Register</button>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-    <?php
-            }
-        }
-        else {
-            echo "Result not found";
-        }
-
-    } else {
-        ?>
-            <div class="card">
-                <div class="container">
-                    <ul>
-                        <li style="padding-left: 370px;">No results</li>
-                    </ul>
-                </div>
-            </div>
-        <?php
-    }
-
-    ?>
-        </div>
-    </section>
-
-    <?php
-
-    /*
-    if (isset($_GET["register"])) {
-
-        echo $_SESSION['userID'];
-        echo "Success";
-                } else {
-                    echo "Failed";
+            <?php
+                            }
+                        }
+                    }
                 }
-    */
-    ?>
+            ?>
+          </table>
 
+      </div>
+    </section>
+
+    <!--footer-->
     <div class="row">
         <footer>
             <p>Copyright © 2019 - Universiti Sains Malaysia</p>
         </footer>
     </div>
 
-    <script src="userhomeFunc.js"></script>
-
+    <script src="announcementFunc.js"></script>
 </body>
 </html>
-
-<?php
-    } else {
-        header("Location: index.php");
-        exit();
-    }
-?>

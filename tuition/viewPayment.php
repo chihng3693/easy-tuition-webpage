@@ -74,9 +74,9 @@
           ?>
 
             <tr>
-              <td><?php echo $userID ?></td>
-              <td><?php echo $subject?></td>
-              <td><?php echo $payStats?></td>
+              <td><?php echo 1004 ?></td>
+              <td><?php echo Mathematics?></td>
+              <td><?php echo Paid?></td>
             </tr>
 
             <?php
