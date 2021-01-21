@@ -30,11 +30,7 @@
                 $sqlpush = "INSERT INTO tuition_classes (classesSubject, classesStartTime, classesEndTime, classesDay, classesPrice, classesTeacher)
                 VALUES('$tsubj', '$tstartime', '$tEndtime', '$tcday', '$tcprice', '$tcteacher')";
 
-                $sqlpush1 = "INSERT INTO tuition_class_bridge (classesID, tuitionID)
-                VALUES('6', '$tuitionID')";
-                
                 $resultpush = mysqli_query($conn, $sqlpush);
-                $resultpush = mysqli_query($conn, $sqlpush1);
 
                 if($resultpush){
                     header("Location: AddClass.php?success=Account has been created!");
