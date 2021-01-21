@@ -19,7 +19,7 @@
         $tcday = validate($_POST['cday']);
         $tcprice = validate($_POST['cprice']);
         $tcteacher = validate($_POST['cteacher']);
-        $tuitionID = $_SESSION('userID');
+        //$tuitionID = $_SESSION('userID');
 
 
         if(empty($tsubj) || empty($tstartime)  || empty($tEndtime)
@@ -33,7 +33,7 @@
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
-                    header("Location: AddClass.php?success=Account has been created!");
+                    header("Location: AddClass.php?success=Classes has been added!");
                     exit();
                 } else{
                     header("Location: AddClass.php?error=Unknown error occurred");
