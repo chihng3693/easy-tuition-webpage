@@ -26,16 +26,6 @@
                 VALUES('$details', '$date', '$time')";
                 $resultpush = mysqli_query($conn, $sqlpush);
 
-                $sqlpush1 = "SELECT userID FROM user_class_bridge WHERE classesID='$classesID'";
-                $resultpush1 = mysqli_query($conn, $sqlpush1);
-                $row = mysqli_num_rows($sqlpush1);
-                  while($row = mysqli_fetch_assoc($sqlpush1)) {
-                    $userID = $row['userID'];
-                    $push = "INSERT INTO announcement_bridge(userID, classesID)
-                    VALUES('$userID','$classesId')";
-                    $result = mysqli_query($conn, $result);
-                  }
-
                 if($resultpush){
                     header("Location: ../tuition/tuitionhome.php");
                     exit();

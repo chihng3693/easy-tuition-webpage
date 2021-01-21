@@ -23,7 +23,7 @@
                   <li> <a href="../tuition/tuitionhome.php">Home</a> </li>
                   <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
                   <li> <a href="../tuition/viewPayment.php">Payment</a> </li>
-                  <li> <a href="../tuition/addClass.php">Add Class</a> </li>
+                  <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                 </ul>
             </nav>
@@ -44,6 +44,7 @@
               <label>Annoucement Notice</label>
               <textarea rows="6" cols="60" name="details"></textarea>
               <br>
+              <button type="submit">Submit Annoucement</button>
               <?php if(isset($_GET['error'])) { ?>
                   <p class="error"><?php echo $_GET['error']; ?></p>
               <?php } ?>
@@ -51,7 +52,6 @@
               <?php if(isset($_GET['success'])) { ?>
                   <p class="success"><?php echo $_GET['success']; ?></p>
               <?php } ?>
-              <button type="submit">Submit Annoucement</button>
               </form>
             </div>
         </div>

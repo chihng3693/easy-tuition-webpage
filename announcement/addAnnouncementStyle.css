@@ -121,22 +121,6 @@ footer{
     margin: auto;
 }
 
-.error {
-    background: #F2DEDE;
-    color: #A94442;
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-}
-
-.success {
-    background: #F2DEDE;
-    color: rgb(39, 184, 39);
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-}
-
 ul{
     list-style-type: none;
 }
@@ -257,5 +241,22 @@ textarea {
     width: 95%;
     padding: 10px;
     margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+.error {
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+}
+
+.success {
+    background: #F2DEDE;
+    color: rgb(39, 184, 39);
+    padding: 10px;
+    width: 95%;
     border-radius: 5px;
 }
