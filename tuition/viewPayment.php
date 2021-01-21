@@ -43,7 +43,7 @@
             include("login/connection.php");
 
             //change the tuitionID get from session
-            $tuitionID = $_SESSION['userID'];
+            $tuitionID = 1000;
 
             $query1 = "SELECT * FROM tuition_class_bridge WHERE tuitionID='$tuitionID'";
 
