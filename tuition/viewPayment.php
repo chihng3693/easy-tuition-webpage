@@ -42,7 +42,7 @@
             include("login/connection.php");
 
             //change the tuitionID get from session
-            $tuitionID = 1000;
+            $tuitionID = $_SESSION['userID'];
 
             $query1 = "SELECT * FROM tuition_class_bridge WHERE tuitionID='$tuitionID'";
 
@@ -85,7 +85,7 @@
                 }
             ?>
           </table>
-  
+
       </div>
     </section>
 
