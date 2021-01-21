@@ -16,9 +16,9 @@
             <nav>
                 <ul>
                   <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
-                  <li> <a href="tuitionhome.php">Home</a> </li>
+                  <li> <a href="../tuition/tuitionhome.php">Home</a> </li>
                   <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
-                  <li> <a href="viewPayment.php">Payment</a> </li>
+                  <li> <a href="../tuition/viewPayment.php">Payment</a> </li>
                   <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                 </ul>
@@ -40,7 +40,7 @@
 
             <?php
             session_start();
-            include("login/connection.php");
+            include("connection.php");
 
             //change the tuitionID get from session
             $tuitionID = 1000;
@@ -74,9 +74,9 @@
           ?>
 
             <tr>
-              <td><?php echo 1004 ?></td>
-              <td><?php echo Mathematics?></td>
-              <td><?php echo Paid?></td>
+              <td><?php echo $userID ?></td>
+              <td><?php echo $subject?></td>
+              <td><?php echo $payStats?></td>
             </tr>
 
             <?php

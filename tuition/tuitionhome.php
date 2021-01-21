@@ -23,9 +23,9 @@
             <nav>
                 <ul>
                   <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
-                  <li> <a href="tuitionhome.php">Home</a> </li>
+                  <li> <a href="../tuition/tuitionhome.php">Home</a> </li>
                   <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
-                  <li> <a href="viewPayment.php">Payment</a> </li>
+                  <li> <a href="../tuition/viewPayment.php">Payment</a> </li>
                   <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                     <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
