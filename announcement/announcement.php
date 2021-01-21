@@ -102,7 +102,7 @@
                         <div class="card">
                             <div class="container">
                                 <ul>
-                                    <li style="padding-left: 370px;">No results</li>
+                                    <li style="padding-left: 370px;">No Announcement</li>
                                 </ul>
                             </div>
                         </div>
@@ -110,6 +110,17 @@
         <?php
                     }
                 }
+            }
+            else {
+        ?>
+                        <div class="card">
+                            <div class="container">
+                                <ul>
+                                    <li style="padding-left: 370px;">No Announcement</li>
+                                </ul>
+                            </div>
+                        </div>
+        <?php
             }
         ?>
 
