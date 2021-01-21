@@ -31,11 +31,11 @@
                 $row = mysqli_num_rows($sqlpush1);
                   while($row = mysqli_fetch_assoc($sqlpush1)) {
                     $push = "INSERT INTO announcement_bridge(userID, classesID)
-                    VALUES('$row[userID]','$classesId')";
+                    VALUES('$row['userID']','$classesId')";
                   }
 
                 if($resultpush){
-                    header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
+                    header("Location: ../tuition/tuitionhome.php");
                     exit();
                 } else{
                     header("Location: addAnnouncementPage.php?error=Unknown error occurred");

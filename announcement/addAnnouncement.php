@@ -19,11 +19,12 @@
         <header>
             <nav>
                 <ul>
-                    <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
-                    <li> <a href="userhome.php">Home</a> </li>
-                    <li> <a href="">Add Announcement</a> </li>
-                    <li> <a href="">Payment</a> </li>
-                    <li> <a href="">Profile</a> </li>
+                  <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
+                  <li> <a href="../tuition/tuitionhome.php">Home</a> </li>
+                  <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
+                  <li> <a href="../payment/payment.php">Payment</a> </li>
+                  <li> <a href="../tuition/addClass.php">Add Class</a> </li>
+                  <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                 </ul>
             </nav>
         </header>
@@ -37,12 +38,19 @@
             <h1>Add Annoucement</h1>
             <div class="feedback">
               <label>Tuition Class ID</label>
-              <input type="text" name="tuitionID" placeholder="Tuition Class ID">
+              <input type="text" name="classesID" placeholder="Tuition Class ID">
               </p>
               <br>
               <label>Annoucement Notice</label>
               <textarea rows="6" cols="60" name="details"></textarea>
               <br>
+              <?php if(isset($_GET['error'])) { ?>
+                  <p class="error"><?php echo $_GET['error']; ?></p>
+              <?php } ?>
+
+              <?php if(isset($_GET['success'])) { ?>
+                  <p class="success"><?php echo $_GET['success']; ?></p>
+              <?php } ?>
               <button type="submit">Submit Annoucement</button>
               </form>
             </div>
