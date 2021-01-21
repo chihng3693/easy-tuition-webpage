@@ -14,7 +14,7 @@
 
         $details = validate($_POST['details']);
         $classesID = validate($_POST['clasesID']);
-        $tuitionID = $_POST['userID'];
+        $tuitionID = $_SESSION['userID'];
         $date = date('m/d/Y');
         $time = date('H:i a');
 
