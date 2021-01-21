@@ -54,7 +54,7 @@
         <?php if(isset($_GET['success'])) { ?>
             <p class="success"><?php echo $_GET['success']; ?></p>
         <?php } ?>
-        <button type="submit" class="submitbtn">Submit</button>
+        <button type="submit" name='submit' class="submitbtn">Submit</button>
       </div>
 
 

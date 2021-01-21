@@ -2,8 +2,7 @@
     session_start();
     include("connection.php");
 
-    if(isset($_POST['subjName']) && isset($_POST['startime'])
-    && isset($_POST['endtime']) && isset($_POST['cday']) && isset($_POST['cprice']) && isset($_POST['cteacher'])){
+    if(isset($_POST['submit'])){
 
         function validate($data){
             $data = trim($data);
