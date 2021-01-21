@@ -27,7 +27,7 @@
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
-                    header("Location: tuitionhome.php");
+                    header("Location: ../tuition/tuitionhome.php");
                     exit();
                 } else{
                     header("Location: addAnnouncementPage.php?error=Unknown error occurred");
