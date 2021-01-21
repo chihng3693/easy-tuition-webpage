@@ -15,7 +15,7 @@
                   <li><img src="../images/tuition-logo.png" alt="tuition-logo" class="logo"></li>
                   <li> <a href="tuitionhome.php">Home</a> </li>
                   <li> <a href="../announcement/addAnnouncement.php">Add Announcement</a> </li>
-                  <li> <a href="../payment/payment.php">Payment</a> </li>
+                  <li> <a href="viewPayment.php">Payment</a> </li>
                   <li> <a href="../tuition/addClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
                 </ul>
