@@ -22,16 +22,17 @@
             header("Location: addAnnouncementPage.php?error=Cannot Leave any Field Blank");
             exit();
         } else {
-              $check = "SELECT * FROM tuition_class_bridge WHERE tuitionID = '$tuitionID' AND classesID = '$classesID'";
-              $result = mysqli_query($conn, $check);
-
-              if(!$result) {
-                header("Location: addAnnouncementPage.php?error=Wrong Tuition Class ID!");
-                exit();
-              } else {
                 $sqlpush = "INSERT INTO announcement(announcementDetail, announcementDate, announcementTime)
                 VALUES('$details', '$date', '$time')";
                 $resultpush = mysqli_query($conn, $sqlpush);
+
+                $sqlpush1 = "SELECT userID FROM user_class_bridge WHERE classesID='$classesID'";
+                $resultpush1 = mysqli_query($conn, $sqlpush1);
+                $row = mysqli_num_rows($sqlpush1);
+                  while($row = mysqli_fetch_assoc($sqlpush1)) {
+                    $push = "INSERT INTO announcement_bridge(userID, classesID)
+                    VALUES('$row[userID]','$classesId')";
+                  }
 
                 if($resultpush){
                     header("Location: addAnnouncementPage.php?success=Announcement has been posted!");
@@ -40,7 +41,6 @@
                     header("Location: addAnnouncementPage.php?error=Unknown error occurred");
                     exit();
                 }
-              }
         }
     }
     else {
