@@ -30,8 +30,10 @@
                 $resultpush1 = mysqli_query($conn, $sqlpush1);
                 $row = mysqli_num_rows($sqlpush1);
                   while($row = mysqli_fetch_assoc($sqlpush1)) {
+                    $userID = $row['userID'];
                     $push = "INSERT INTO announcement_bridge(userID, classesID)
-                    VALUES('$row['userID']','$classesId')";
+                    VALUES('$userID','$classesId')";
+                    $result = mysqli_query($conn, $result);
                   }
 
                 if($resultpush){
