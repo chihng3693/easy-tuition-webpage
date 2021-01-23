@@ -29,9 +29,9 @@
                 $sqlpush = "INSERT INTO tuition_classes (classesSubject, classesStartTime, classesEndTime, classesDay, classesPrice, classesTeacher)
                 VALUES('$tsubj', '$tstartime', '$tEndtime', '$tcday', '$tcprice', '$tcteacher')";
 
-                //$resultpush = mysqli_query($conn, $sqlpush);
+                $resultpush = mysqli_query($conn, $sqlpush);
 
-                if(mysqli_query($conn, $sqlpush)){
+                if($resultpush){
                     //$classID = mysqli_insert_id($conn);
                     //$push = "INSERT INTO tuition_class_bridge (classesID, tuitionID)
                     //VALUES ('$classID', '$tuitionID')";
