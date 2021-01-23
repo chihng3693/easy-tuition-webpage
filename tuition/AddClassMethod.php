@@ -36,7 +36,7 @@
                     $push = "INSERT INTO tuition_class_bridge (classesID, tuitionID)
                     VALUES ('$classID', '$tuitionID')";
 
-                    $result = mysqli_query($conn, $push);
+                    //$result = mysqli_query($conn, $push);
                     header("Location: AddClass.php?success=Classes has been added!");
                     exit();
                 } else{
