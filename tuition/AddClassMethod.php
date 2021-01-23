@@ -18,7 +18,7 @@
         $tcday = validate($_POST['cday']);
         $tcprice = validate($_POST['cprice']);
         $tcteacher = validate($_POST['cteacher']);
-        $tuitionID = $_SESSION('userID');
+        //$tuitionID = $_SESSION('userID');
 
 
         if(empty($tsubj) || empty($tstartime)  || empty($tEndtime)
