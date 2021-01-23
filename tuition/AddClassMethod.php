@@ -18,7 +18,7 @@
         $tcday = validate($_POST['cday']);
         $tcprice = validate($_POST['cprice']);
         $tcteacher = validate($_POST['cteacher']);
-        //$tuitionID = $_SESSION('userID');
+        $tuitionID = $_SESSION('userID');
 
 
         if(empty($tsubj) || empty($tstartime)  || empty($tEndtime)
@@ -32,6 +32,11 @@
                 $resultpush = mysqli_query($conn, $sqlpush);
 
                 if($resultpush){
+                    $classID = mysqli_insert_id($conn);
+                    $push = "INSERT INTO tuition_class_bridge (classesID, tuitionID)
+                    VALUES ('$classID', '$tuitionID')";
+
+                    $result = mysqli_query($conn, $push);
                     header("Location: AddClass.php?success=Classes has been added!");
                     exit();
                 } else{
