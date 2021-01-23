@@ -34,8 +34,6 @@
 
                     if($rows > 0){
 
-                        echo "yes";
-
                         while($rows = mysqli_fetch_assoc($queryGetUID)) {
                             $userID = $rows['userID'];
 
