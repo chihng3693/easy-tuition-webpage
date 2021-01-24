@@ -21,6 +21,7 @@
                   <li> <a href="../tuition/viewPayment.php">Payment</a> </li>
                   <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
+                  <li><button onclick="document.location.href='../logout.php'">Logout</button></li>
                 </ul>
             </nav>
         </header>

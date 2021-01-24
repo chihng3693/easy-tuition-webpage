@@ -28,6 +28,7 @@
                   <li> <a href="../tuition/viewPayment.php">Payment</a> </li>
                   <li> <a href="../tuition/AddClass.php">Add Class</a> </li>
                   <li> <a href="../tuition/editTuitionProfile.php">Edit Profile</a> </li>
+                  <li><button onclick="document.location.href='../logout.php'">Logout</button></li>
                     <!--li><button>Hi, <//?php echo $_SESSION['userID']; ?><br><br><a href="../logout.php">Logout</a></button></li-->
                     <!--li> <p> Hi, </p><a href="../logout.php">Logout</a> </li-->
                 </ul>
