@@ -33,7 +33,6 @@
                     $rows = mysqli_num_rows($queryGetUID);
 
                     if($rows > 0){
-
                         while($rows = mysqli_fetch_assoc($queryGetUID)) {
                             $userID = $rows['userID'];
 
@@ -41,12 +40,10 @@
                             VALUES('$announcementID', '$userID', '$classesID')";
                             $result = mysqli_query($conn, $sql);
                         }
-
-                        header("Location: ../tuition/tuitionhome.php");
-                        exit();
-
                     }
 
+                    header("Location: ../tuition/tuitionhome.php");
+                    exit();
                 } else{
                     header("Location: addAnnouncementPage.php?error=Unknown error occurred");
                     exit();
